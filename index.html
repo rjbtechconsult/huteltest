@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/scss/style.css">
+
+</head>
+<body>
+
+    <div class="login container">
+
+        <span class="content col-md-6">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="assets/images/logo.svg" alt="">
+                    <h2 class="d-block d-md-none mb-5">Sign in with your phone number</h2>
+
+
+                    <form id="loginForm" class="text-start needs-validation">
+                        <div class="mb-3">
+                            <label for="number" class="form-label">Login with your number <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="number" aria-describedby="numberHelp">
+                            <div class="invalid-feedback">
+                                Please enter a correct phone number
+                              </div>
+                            <div class="d-grid mt-3">
+                                <button class="btn btn-primary" type="submit">Login</button>
+                            </div>
+                            <div class="text-center text-md-end mt-2">
+                                <small>Need help?</small>
+                            </div>
+
+                            <div class="login-footer d-block d-md-none">
+                                <p class="text-center">
+                                    Don’t have the app? Get it here
+                                </p>
+                                <div class="d-flex">
+                                    <span class="mx-auto">
+                                        <img width="40" class="me-2" src="assets/images/Google_Play_Arrow_logo.png" alt="">
+                                        <img src="assets/images/googleplaytext.svg" alt="">
+                                    </span>
+                                </div>
+                                
+                            </div>
+                          </div>
+                    </form>
+                </div>
+
+                <div class="col-md-6 login-col-right d-none d-md-block">
+                    <div class="outer">
+                        <div class="inner text-center d-flex">
+                            <span class="m-auto">
+                                <img src="assets/images/qr.svg" alt="">
+                                <p class="m-0">
+                                    Do you have the Hubtel app?
+                                </p>
+                                <p class="font-weight-bol m-0">
+                                    <strong>Sign in faster via QR code</strong>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </span>
+
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="otpModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="otpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body d-flex">
+            <span class="mx-auto">
+                <img src="assets/images/info.svg" alt="">
+            </span>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+            <div class="mb-3 text-center">
+                <pk class="m-0">
+                    (For Ghanaian users)
+                </p>
+                <p class="m-0">
+                    Dial *713*90# to see the 4-digit OTP message to log in
+                </p>
+            </div>
+            <form accept="otp.html" id="otpForm">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Enter OTP Code</button>
+                </div>
+                <!-- <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Resend Code</button> -->
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+
+    $(function(){
+
+        $('#loginForm').submit(function(e){
+            e.preventDefault();
+            let form = $(this);
+
+            if($('#number').val()==""){
+                console.log('empty');
+                $('#number').addClass('is-invalid');
+            }else{
+                $('#number').removeClass('is-invalid');
+                $('#otpModal').modal('show');
+            }
+        })
+
+        $('#otpForm').submit(function(e){
+            e.preventDefault();
+            console.log('kdkd');
+            location.href = "./otp.html"
+        })
+
+
+        // // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        // var forms = document.querySelectorAll('.needs-validation')
+
+        // // Loop over them and prevent submission
+        // Array.prototype.slice.call(forms)
+        // .forEach(function (form) {
+        //     form.addEventListener('submit', function (event) {
+        //     if (!form.checkValidity()) {
+        //         event.preventDefault()
+        //         event.stopPropagation()
+        //     }
+
+        //     form.classList.add('was-validated')
+        //     }, false)
+        // })
+    })
+</script>
+</body>
+</html>
