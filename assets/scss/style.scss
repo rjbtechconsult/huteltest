@@ -1,4 +1,9 @@
 @import 'theme';
+@import 'fonts';
+
+*,body{
+    font-family: 'SourceSansPro-Regular';
+}
 
 .login{
     min-height: 100vh;
@@ -104,6 +109,7 @@
 }
 .form-label{
     font-weight: 600;
+    color: $nueral-black;
 }
 .font-weight-600{
     font-weight: 600;

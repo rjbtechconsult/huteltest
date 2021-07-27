@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'SourceSansPro-Regular';
+  src: url("../font/SourceSansPro-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+*, body {
+  font-family: 'SourceSansPro-Regular';
+}
+
 .login {
   min-height: 100vh;
   display: -webkit-box;
@@ -119,6 +130,7 @@
 
 .form-label {
   font-weight: 600;
+  color: #09101d;
 }
 
 .font-weight-600 {
